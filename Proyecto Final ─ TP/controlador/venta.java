@@ -1,7 +1,7 @@
-package controlador;
+package Controlador;
 
-import modelo.cliente;
-import modelo.producto;
+import Modelo.Cliente;
+import Modelo.Producto;
 
 import javax.swing.JOptionPane;
 import java.io.FileWriter;
@@ -10,18 +10,18 @@ import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class venta {
+public class Venta {
 
     private double totalVenta;
-    private cliente cliente;
-    private producto[] productos;
+    private Cliente cliente;
+    private Producto[] productos;
     private LocalDateTime fechaHora;
 
     // Constructor
-    public venta(producto[] productos) {
+    public Venta(Producto[] productos) {
     this.productos = productos;
     this.fechaHora = LocalDateTime.now();
-    this.cliente = new cliente(); // Asegúrate de inicializar el cliente aquí
+    this.cliente = new Cliente(); // Asegúrate de inicializar el cliente aquí
     }
 
     // Método para realizar la venta
@@ -47,7 +47,7 @@ public class venta {
     // Método para validar el producto y efectuar la venta
     private void validarProductoEfectuarVenta(int indiceProducto, int cantidad) {
         if ((indiceProducto >= 0) && (indiceProducto < productos.length)) {
-            producto productoVendido = productos[indiceProducto];
+            Producto productoVendido = productos[indiceProducto];
 
             // Actualizar la cantidad vendida en el producto
             productoVendido.setCantidadVendida(productoVendido.getCantidadVendida() + cantidad);
@@ -62,8 +62,8 @@ public class venta {
                     "Producto agregado:\n" +
                             "Producto: " + nombreProducto + "\n" +
                             "Cantidad: " + cantidad + "\n" +
-                            "Precio unitario: S/." + precioUnitario + "\n" +
-                            "Sub total: S/." + this.totalVenta + "\n" +
+                            "Precio unitario: $" + precioUnitario + "\n" +
+                            "Sub total: $" + this.totalVenta + "\n" +
                             "Fecha: " + obtenerFecha(),
                     "Detalles de la Venta", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -84,7 +84,7 @@ public class venta {
         double totalVentaDeProductos = 0;
 
         for (int i = 0; i < productos.length; i++) {
-            producto producto = productos[i];
+            Producto producto = productos[i];
 
             // Verifica si el producto se compró (cantidad vendida mayor que cero)
             if (producto.getCantidadVendida() > 0) {
@@ -126,7 +126,7 @@ public class venta {
     private double calcularTotalVentas() {
         double total = 0;
 
-        for (producto producto : productos) {
+        for (Producto producto : productos) {
             total += calcularTotalVenta(producto.getPrecio(), producto.getCantidadVendida());
         }
 
@@ -136,7 +136,7 @@ public class venta {
     // Setter para establecer el nombre del cliente
     public void setNombreCliente(String nombreCliente) {
         if (cliente == null) {
-            cliente = new cliente();
+            cliente = new Cliente();
         }
         cliente.setNombre(nombreCliente);
     }
