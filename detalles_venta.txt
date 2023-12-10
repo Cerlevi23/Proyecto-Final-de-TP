@@ -1,0 +1,21 @@
+
+Detalles de la venta:
+Nombre del cliente: Diego
+Fecha y hora de la venta: 10-12-2023 10:30:18
+Productos comprados:
+Producto             Cantidad   Precio Unitario Sub total      
+Tonificadores Abdominales 2          125.00          250.00         
+Tobilleras           5          10.00           50.00          
+Pelota Fitness       1          63.00           63.00          
+Total de la venta: $363.0
+
+=========================================
+Detalles de la venta:
+Nombre del cliente: Fabricio
+Fecha y hora de la venta: 10-12-2023 10:30:52
+Productos comprados:
+Producto             Cantidad   Precio Unitario Sub total      
+Proteinas            10         72.00           720.00         
+Total de la venta: $720.0
+
+=========================================
